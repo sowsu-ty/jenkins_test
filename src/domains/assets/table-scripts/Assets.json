@@ -1,0 +1,101 @@
+{
+  "TableName": "Assets",
+  "KeySchema": [
+    {
+      "AttributeName": "AssetID",
+      "KeyType": "HASH"
+    }
+  ],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "AssetID",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "OriginalName",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "Name",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "Type",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "Quality",
+      "AttributeType": "S"
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 5,
+    "WriteCapacityUnits": 5
+  },
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "OriginalName-index",
+      "KeySchema": [
+        {
+          "AttributeName": "OriginalName",
+          "KeyType": "HASH"
+        }
+      ],
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 10,
+        "WriteCapacityUnits": 5
+      },
+      "Projection": {
+        "ProjectionType": "ALL"
+      }
+    },
+    {
+      "IndexName": "Name-index",
+      "KeySchema": [
+        {
+          "AttributeName": "Name",
+          "KeyType": "HASH"
+        }
+      ],
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 10,
+        "WriteCapacityUnits": 5
+      },
+      "Projection": {
+        "ProjectionType": "ALL"
+      }
+    },
+    {
+      "IndexName": "Type-index",
+      "KeySchema": [
+        {
+          "AttributeName": "Type",
+          "KeyType": "HASH"
+        }
+      ],
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 10,
+        "WriteCapacityUnits": 5
+      },
+      "Projection": {
+        "ProjectionType": "ALL"
+      }
+    },
+    {
+      "IndexName": "Quality-index",
+      "KeySchema": [
+        {
+          "AttributeName": "Quality",
+          "KeyType": "HASH"
+        }
+      ],
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 10,
+        "WriteCapacityUnits": 5
+      },
+      "Projection": {
+        "ProjectionType": "ALL"
+      }
+    }
+  ]
+}
